@@ -1,0 +1,22 @@
+---
+title: {{title}}
+author: {{author}}
+document_type: {{type}}
+source: shortform
+url: {{url}}
+---
+
+# {{title}} 
+
+> [!ABSTRACT] Metadata
+> - Author: {{author}}
+> - Content: ![{{title}}]({{url}})
+
+## Highlights
+{% for quote in quotes %}
+> {{quote.quote}}
+
+{{quote.text}}
+
+---
+{% endfor%}

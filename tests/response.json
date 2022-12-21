@@ -1,0 +1,697 @@
+{
+    "data": [
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T09:58:24.390121+00:00",
+            "id": "6f879deb-a9c0-4ad6-9899-fcd343f214a7",
+            "is_public": false,
+            "quote": "Idea #1: Deep Work Is Important",
+            "ranges": [
+                {
+                    "end": "/h3[1]/em[1]",
+                    "endOffset": 9,
+                    "start": "/h3[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T09:58:24.390121+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T09:58:38.471979+00:00",
+            "id": "ed308606-5d18-4160-bd8b-24af49580475",
+            "is_public": false,
+            "quote": "Learn and master new skills:",
+            "ranges": [
+                {
+                    "end": "/ol[1]/li[1]/strong[1]",
+                    "endOffset": 28,
+                    "start": "/ol[1]/li[1]/strong[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T09:58:38.471979+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T09:58:41.794727+00:00",
+            "id": "3cd9a4d3-3f41-429f-9572-85b5331a3b38",
+            "is_public": false,
+            "quote": "Apply the skills to increase your output:",
+            "ranges": [
+                {
+                    "end": "/ol[1]/li[2]/strong[1]",
+                    "endOffset": 41,
+                    "start": "/ol[1]/li[2]/strong[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T09:58:41.794727+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T10:09:40.097268+00:00",
+            "id": "6b3f6795-62bb-44a0-8f56-bab72d870c78",
+            "is_public": false,
+            "quote": "Idea #2: Deep Work Is Difficult",
+            "ranges": [
+                {
+                    "end": "/h3[2]/em[1]",
+                    "endOffset": 9,
+                    "start": "/h3[2]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T10:09:40.097268+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T10:09:45.999527+00:00",
+            "id": "2e2086a3-0334-4b35-801a-dda4b4edf28f",
+            "is_public": false,
+            "quote": "Idea #3: Deep Work Is Fulfilling",
+            "ranges": [
+                {
+                    "end": "/h3[3]",
+                    "endOffset": 32,
+                    "start": "/h3[3]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T10:09:45.999527+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T11:53:19.967850+00:00",
+            "id": "cec82f54-3160-4862-9fb6-690b3c2b58f2",
+            "is_public": false,
+            "quote": "How can I get my shallow work done with this kind of schedule?\u201d ask, \u201cWho can I delegate my shallow work to?\u201d",
+            "ranges": [
+                {
+                    "end": "/p[16]",
+                    "endOffset": 488,
+                    "start": "/p[16]/em[3]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T11:53:19.967850+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T11:56:04.302244+00:00",
+            "id": "d633aac5-d749-4e16-8832-dbaaac8ca7c2",
+            "is_public": false,
+            "quote": "Quantify depth: He then says to estimate and note the \u201cdeep work\u201d complexity of each task",
+            "ranges": [
+                {
+                    "end": "/ol[3]/li[2]",
+                    "endOffset": 89,
+                    "start": "/ol[3]/li[2]/strong[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T11:56:04.302244+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T11:59:28.596163+00:00",
+            "id": "f71ca902-e43e-4eeb-ac3f-e1b5886f6fd7",
+            "is_public": false,
+            "quote": "1) the current state of things, 2) what the ultimate goal is, and 3) what the most effective next steps are",
+            "ranges": [
+                {
+                    "end": "/p[43]",
+                    "endOffset": 239,
+                    "start": "/p[43]",
+                    "startOffset": 132
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T11:59:28.596163+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T12:02:36.224956+00:00",
+            "id": "96e3230b-3331-42a3-8ce4-0bc6b8eb4c43",
+            "is_public": false,
+            "quote": "Focus on what\u2019s important. When choosing what to work on, figure out what things have the largest impact. Then, instead of trying to say no to trivial distractions, simply say yes to the most important task or goal",
+            "ranges": [
+                {
+                    "end": "/p[54]/strong[2]",
+                    "endOffset": 49,
+                    "start": "/p[54]/strong[1]",
+                    "startOffset": 3
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T12:02:36.224956+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T12:02:39.854730+00:00",
+            "id": "3d289345-98f6-4633-8ddd-34550258e983",
+            "is_public": false,
+            "quote": "The 4 Disciplines of Execution",
+            "ranges": [
+                {
+                    "end": "/h4[7]",
+                    "endOffset": 30,
+                    "start": "/h4[7]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T12:02:39.854730+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T12:03:19.717859+00:00",
+            "id": "f43ce25f-0802-4488-b2e7-08426896b090",
+            "is_public": false,
+            "quote": "Use the right metrics",
+            "ranges": [
+                {
+                    "end": "/p[56]/strong[1]",
+                    "endOffset": 24,
+                    "start": "/p[56]/strong[1]",
+                    "startOffset": 3
+                }
+            ],
+            "text": "Lagging vs Leading metrics",
+            "updated": "2022-11-20T12:04:25.369871+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Cal Newport",
+                    "cover_image": "//media.shortform.com/covers/png/deep-work-cover.png",
+                    "doc_type": "book",
+                    "id": "3d8a60cc-8639-4ec4-a94f-f37ad0b07959",
+                    "title": "Deep Work",
+                    "url_slug": "deep-work"
+                },
+                "id": "7008eda3-4da3-46ed-8752-2f3cc7e166c7",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-20T12:13:23.686671+00:00",
+            "id": "a23346a1-e4e9-4257-ac1e-0b16f7914b30",
+            "is_public": false,
+            "quote": "Newport stresses that an important benefit of the end-of-day ritual is that it helps reassure you that things will be fine when you shut down. When you create a shutdown ritual, instead of feeling anxious about unfinished tasks, you\u2019ll feel confident that all the important tasks are accounted for, and that you\u2019ll make meaningful progress the next day. This gives you more time to fully relax in your time off from work.",
+            "ranges": [
+                {
+                    "end": "/p[66]",
+                    "endOffset": 421,
+                    "start": "/p[66]/strong[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-20T12:13:23.686671+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Peter F. Drucker",
+                    "cover_image": "//media.shortform.com/covers/png/the-effective-executive-cover.png",
+                    "doc_type": "book",
+                    "id": "ff6f6728-7d35-4ca9-8f17-b884d277843c",
+                    "title": "The Effective Executive",
+                    "url_slug": "the-effective-executive"
+                },
+                "id": "a743863b-4403-42d0-b5cf-b2f58cbf8d05",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-21T17:21:37.039497+00:00",
+            "id": "c1a1f0f6-5ad0-401c-84a0-89d2b4542118",
+            "is_public": false,
+            "quote": "Practice #1: Manage Your Time\nDrucker\u2019s first practice for effectiveness is managing your time. He argues that you first need to understand what you\u2019re currently doing with your time then take control of it. There are three steps: Analyze your time, cut time wasters, and time block.",
+            "ranges": [
+                {
+                    "end": "/p[5]",
+                    "endOffset": 253,
+                    "start": "/h3[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-21T17:21:37.039497+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Peter F. Drucker",
+                    "cover_image": "//media.shortform.com/covers/png/the-effective-executive-cover.png",
+                    "doc_type": "book",
+                    "id": "ff6f6728-7d35-4ca9-8f17-b884d277843c",
+                    "title": "The Effective Executive",
+                    "url_slug": "the-effective-executive"
+                },
+                "id": "a743863b-4403-42d0-b5cf-b2f58cbf8d05",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-22T16:58:55.487794+00:00",
+            "id": "eed4883f-7dca-4d79-8b64-b2088bb98632",
+            "is_public": false,
+            "quote": "Drucker emphasizes that as an executive, you\u2019re being paid for your unique contribution to the organization\u2019s performance\u2014and when you allow yourself to be distracted from this by tasks someone else can do, you undercut your effectiveness as well as the organization's.",
+            "ranges": [
+                {
+                    "end": "/p[10]",
+                    "endOffset": 435,
+                    "start": "/p[10]",
+                    "startOffset": 166
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-22T16:58:55.487794+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Peter F. Drucker",
+                    "cover_image": "//media.shortform.com/covers/png/the-effective-executive-cover.png",
+                    "doc_type": "book",
+                    "id": "ff6f6728-7d35-4ca9-8f17-b884d277843c",
+                    "title": "The Effective Executive",
+                    "url_slug": "the-effective-executive"
+                },
+                "id": "a743863b-4403-42d0-b5cf-b2f58cbf8d05",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-22T17:13:37.344089+00:00",
+            "id": "39897bda-1a45-41a0-8009-f267c928ebb2",
+            "is_public": false,
+            "quote": "While most people focus on determining priorities, Drucker contends that consciously deciding your non-priorities is equally important, because non-priorities tend to encroach on priorities unless you actively resist or eliminate them. Non-priorities are tasks you\u2019ve decided you won\u2019t do or opportunities you won\u2019t pursue now, if at all. These are activities that offer little or no significant long-term value",
+            "ranges": [
+                {
+                    "end": "/p[20]",
+                    "endOffset": 411,
+                    "start": "/p[20]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-22T17:13:37.344089+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Peter F. Drucker",
+                    "cover_image": "//media.shortform.com/covers/png/the-effective-executive-cover.png",
+                    "doc_type": "book",
+                    "id": "ff6f6728-7d35-4ca9-8f17-b884d277843c",
+                    "title": "The Effective Executive",
+                    "url_slug": "the-effective-executive"
+                },
+                "id": "a743863b-4403-42d0-b5cf-b2f58cbf8d05",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-25T14:53:30.778685+00:00",
+            "id": "9a8a7053-de3a-418c-b94e-9e0f61dec454",
+            "is_public": false,
+            "quote": "three questions executives and knowledge workers should ask to determine their contribution. Instead of the typical question, \u201cWhat do I want to do?\u201d, ask:\n\nWhat does the situation require?\n\nGiven my strengths, my way of performing, and my values, how can I make the greatest contribution to what needs to be done?\n\nWhat results have to be achieved to make a difference?",
+            "ranges": [
+                {
+                    "end": "/blockquote[8]/ul[1]/li[3]/p[1]",
+                    "endOffset": 54,
+                    "start": "/blockquote[8]/p[2]/a[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-25T14:53:30.778685+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Peter F. Drucker",
+                    "cover_image": "//media.shortform.com/covers/png/the-effective-executive-cover.png",
+                    "doc_type": "book",
+                    "id": "ff6f6728-7d35-4ca9-8f17-b884d277843c",
+                    "title": "The Effective Executive",
+                    "url_slug": "the-effective-executive"
+                },
+                "id": "a743863b-4403-42d0-b5cf-b2f58cbf8d05",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-11-25T14:54:14.857711+00:00",
+            "id": "0a1160e5-369c-47d3-a9ec-ea690a50290f",
+            "is_public": false,
+            "quote": "you can\u2019t accomplish anything significant by focusing on your own or others\u2019 weaknesses. When you focus on weaknesses, you undermine the purpose of the organization, which is to translate people\u2019s strengths into performance for results. He",
+            "ranges": [
+                {
+                    "end": "/p[25]",
+                    "endOffset": 259,
+                    "start": "/p[25]/strong[1]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-11-25T14:54:14.857711+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Shortform Explainers",
+                    "cover_image": "//media.shortform.com/covers/articles/why-economists-arent-worried-about-the-big-tech-layoffs-shortform-explainers-shortform-cover.jpg",
+                    "doc_type": "article",
+                    "id": "6616f6cc-806c-4ff2-bbaf-a80d3cbd1a54",
+                    "title": "Why Economists Aren\u2019t Worried About the Big Tech Layoffs",
+                    "url_slug": "why-economists-arent-worried-about-the-big-tech-layoffs-shortform-explainers-shortform"
+                },
+                "id": "880c1e46-1360-468c-9b63-3cb0f017f19d",
+                "order": 0,
+                "title": "Why Economists Aren\u2019t Worried About the Big Tech Layoffs",
+                "url_slug": "why-economists-arent-worried-about-the-big-tech-layoffs"
+            },
+            "created": "2022-12-08T15:24:28.014601+00:00",
+            "id": "5c7e5441-658c-4530-8033-fd10151d94cb",
+            "is_public": false,
+            "quote": "a few large companies created a bubble based on overly optimistic predictions and now the market is correcting itself",
+            "ranges": [
+                {
+                    "end": "/p[9]",
+                    "endOffset": 333,
+                    "start": "/p[9]",
+                    "startOffset": 215
+                }
+            ],
+            "text": "",
+            "updated": "2022-12-08T15:24:28.014601+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Larry Bossidy and Ram Charan",
+                    "cover_image": "//media.shortform.com/covers/png/execution-cover.png",
+                    "doc_type": "book",
+                    "id": "37eadacf-259a-4640-95ec-60c6c7ff7976",
+                    "title": "Execution",
+                    "url_slug": "execution"
+                },
+                "id": "f0236fc4-cd11-446c-839e-ec69d084a8e5",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-12-12T22:41:58.156749+00:00",
+            "id": "7dc22b59-be32-44b8-a403-e7d994e9beb4",
+            "is_public": false,
+            "quote": "Ultimately, execution is the thread that ties together strategy, goals, and people in a successful company. In practice, it looks like motivated people collaborating, speaking candidly, and relentlessly seeking solutions to fulfill big goals, all led by their leader",
+            "ranges": [
+                {
+                    "end": "/p[7]",
+                    "endOffset": 266,
+                    "start": "/p[7]",
+                    "startOffset": 0
+                }
+            ],
+            "text": "",
+            "updated": "2022-12-12T22:41:58.156749+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Larry Bossidy and Ram Charan",
+                    "cover_image": "//media.shortform.com/covers/png/execution-cover.png",
+                    "doc_type": "book",
+                    "id": "37eadacf-259a-4640-95ec-60c6c7ff7976",
+                    "title": "Execution",
+                    "url_slug": "execution"
+                },
+                "id": "f0236fc4-cd11-446c-839e-ec69d084a8e5",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-12-12T22:44:29.301092+00:00",
+            "id": "3b4aa1a9-9b67-474f-ad4f-d210f33c7f08",
+            "is_public": false,
+            "quote": "Leaders cannot possibly detect all risks from a single vantage point, so engaging with others through execution is essential to expanding their awareness.",
+            "ranges": [
+                {
+                    "end": "/p[9]",
+                    "endOffset": 437,
+                    "start": "/p[9]",
+                    "startOffset": 283
+                }
+            ],
+            "text": "",
+            "updated": "2022-12-12T22:44:29.301092+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Larry Bossidy and Ram Charan",
+                    "cover_image": "//media.shortform.com/covers/png/execution-cover.png",
+                    "doc_type": "book",
+                    "id": "37eadacf-259a-4640-95ec-60c6c7ff7976",
+                    "title": "Execution",
+                    "url_slug": "execution"
+                },
+                "id": "f0236fc4-cd11-446c-839e-ec69d084a8e5",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-12-12T22:50:18.516765+00:00",
+            "id": "e74acb96-3bc0-4975-8d41-27da45716848",
+            "is_public": false,
+            "quote": "because execution involves information-sharing, truth-telling, and collaboration, it keeps all the big players in a company aligned with its game plan and informed about what it\u2019s going to take to fulfill that plan. When this information flows freely, Bossidy and Charan emphasize, team members can trust that the strategy is sound and the goals are attainable. They\u2019ll be clear about their role in achieving the company\u2019s goals and motivated to perform at a high level. When everyone in the company is engaged in this way, you\u2019re likely to see the bottom-line results you want and need.",
+            "ranges": [
+                {
+                    "end": "/p[14]",
+                    "endOffset": 596,
+                    "start": "/p[14]",
+                    "startOffset": 9
+                }
+            ],
+            "text": "",
+            "updated": "2022-12-12T22:50:18.516765+00:00"
+        },
+        {
+            "content": {
+                "content_type": "ContentType.chapter",
+                "doc": {
+                    "author": "Larry Bossidy and Ram Charan",
+                    "cover_image": "//media.shortform.com/covers/png/execution-cover.png",
+                    "doc_type": "book",
+                    "id": "37eadacf-259a-4640-95ec-60c6c7ff7976",
+                    "title": "Execution",
+                    "url_slug": "execution"
+                },
+                "id": "f0236fc4-cd11-446c-839e-ec69d084a8e5",
+                "order": 0,
+                "title": "1-Page Summary",
+                "url_slug": "1-page-summary"
+            },
+            "created": "2022-12-12T22:52:34.145892+00:00",
+            "id": "692ea316-44cc-4be5-b954-d1613c343a3a",
+            "is_public": false,
+            "quote": "Execution, as Bossidy and Charan affirm, is not complicated. Its key behaviors fall primarily into three main categories: finding and keeping talent, setting realistic goals, and creating tactical plans that work.",
+            "ranges": [
+                {
+                    "end": "/p[15]/strong[1]",
+                    "endOffset": 91,
+                    "start": "/p[15]",
+                    "startOffset": 106
+                }
+            ],
+            "text": "",
+            "updated": "2022-12-12T22:52:34.145892+00:00"
+        }
+    ],
+    "metadata": {
+        "user": {
+            "email": "some@email.com",
+            "id": "11111111-bbbb-0000-aaaa-dddddddddddd",
+            "is_limited": false,
+            "is_trial": false,
+            "plan_id": "plan_annual",
+            "signup": "2022-01-01T07:58:17.586281+00:00",
+            "username": null
+        }
+    }
+}
