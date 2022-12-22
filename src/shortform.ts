@@ -47,6 +47,16 @@ export interface ResponseDownloader {
     getResponse(): ShortformResponse;
 }
 
+function buildUrl(url_slug: string, type: string): string {
+    switch (type) {
+        case 'book':
+            return `https://www.shortform.com/app/book/${url_slug}/preview`;
+        case 'article':
+            return `https://www.shortform.com/app/article/${url_slug}`;
+    }
+    return '';
+}
+
 export default class ShortForm {
 
     constructor(private downloader: ResponseDownloader) { }
@@ -82,7 +92,7 @@ export default class ShortForm {
                 cover: book.content.doc.cover_image,
                 type: book.content.doc.doc_type,
                 quotes: quotes,
-                url: `https://www.shortform.com/app/book/${book.content.doc.url_slug}/preview`,
+                url: buildUrl(book.content.doc.url_slug, book.content.content_type),
             };
 
             documents.push(doc);
