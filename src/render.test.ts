@@ -1,6 +1,5 @@
 import { ContentDocument, Quote } from "./models";
 import Renderer from "./render";
-import ShortForm from "./shortform";
 
 test('Test render', () => {
     const render = new Renderer();
@@ -28,5 +27,38 @@ test('Test render', () => {
         quotes: quotes,
     };
 
-    console.log(render.render(content));
+    const expected = `---
+title: testing title
+author: santiago
+document_type: book
+source: shortform
+url: https://www.shortform.com/app/book/deep-work/preview
+---
+
+# testing title 
+
+> [!ABSTRACT] Metadata
+> - Author: santiago
+> - Content: [testing title](https://www.shortform.com/app/book/deep-work/preview)
+
+## Highlights
+
+> first quote from the book
+
+
+this quote changed my life
+
+---
+
+> second quote from the book
+
+
+this should be forever
+
+---
+
+`;
+
+
+    expect(render.render(content)).toBe(expected);
 });

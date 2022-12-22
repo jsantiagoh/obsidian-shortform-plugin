@@ -4,12 +4,6 @@ import { ContentDocument } from './models';
 import { bookTemplate } from './templates';
 
 
-type TemplateVariables = {
-    title: string;
-    author: string;
-}
-
-
 export default class Renderer {
 
     constructor() {

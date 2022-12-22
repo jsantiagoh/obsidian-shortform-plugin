@@ -42,18 +42,17 @@ export interface ShortformResponse {
     metadata: ShortformMetadata;
 }
 
+// Retrieves raw data from Shortform
+export interface ResponseDownloader {
+    getResponse(): ShortformResponse;
+}
 
-
-// Get raw data from Shortform
 export default class ShortForm {
 
-    callShortForm(): ShortformResponse {
-        const response: ShortformResponse = require('../data/response.json');
-        return response;
-    }
+    constructor(private downloader: ResponseDownloader) { }
 
     public getHighlights(): ContentDocument[] {
-        const response = this.callShortForm();
+        const response = this.downloader.getResponse();
         return this.parseResponse(response);
     }
 
@@ -63,7 +62,7 @@ export default class ShortForm {
         const grouped: Record<string, ShortformData[]> =
             groupBy(response.data, d => d.content.doc.id);
 
-        let documents: ContentDocument[] = new Array();
+        const documents: ContentDocument[] = [];
 
         for (const key in grouped) {
             const data = grouped[key];
@@ -89,46 +88,6 @@ export default class ShortForm {
             documents.push(doc);
         }
 
-
         return documents;
     }
 }
-
-
-// Parses a Shortform response to something to be rendered, 
-// most importantly groups highlights by Book or Article.
-// DEPRECATED
-export function parseResponseDeprecated(response: ShortformResponse): ContentDocument[] {
-    const grouped: Record<string, ShortformData[]> =
-        groupBy(response.data, d => d.content.doc.id);
-
-    let documents: ContentDocument[] = new Array();
-
-    for (const key in grouped) {
-        const data = grouped[key];
-        const book = data[0];
-
-        const quotes: Quote[] = data.map(d => ({
-            id: d.id,
-            quote: d.quote,
-            text: d.text,
-        } as Quote)
-        );
-
-        const doc: ContentDocument = {
-            id: key,
-            title: book.content.doc.title,
-            author: book.content.doc.author,
-            cover: book.content.doc.cover_image,
-            type: book.content.doc.doc_type,
-            quotes: quotes,
-            url: `https://www.shortform.com/app/book/${book.content.doc.url_slug}/preview`,
-        };
-
-        documents.push(doc);
-    }
-
-
-    return documents;
-}
-
