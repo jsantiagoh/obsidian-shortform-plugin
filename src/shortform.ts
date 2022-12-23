@@ -44,7 +44,7 @@ export interface ShortformResponse {
 
 // Retrieves raw data from Shortform
 export interface ResponseDownloader {
-    getResponse(): ShortformResponse;
+    getResponse(): Promise<ShortformResponse>;
 }
 
 function buildUrl(url_slug: string, type: string): string {
@@ -57,13 +57,26 @@ function buildUrl(url_slug: string, type: string): string {
     return '';
 }
 
+
+export const fetchDownloader: ResponseDownloader = {
+    getResponse: async function (): Promise<ShortformResponse> {
+        const resp = await fetch('https://wttr.in/Amsterdam?format=j1');
+        if (!resp.ok) {
+            throw new Error(resp.statusText);
+        }
+        const data = await resp.json();
+        return data as ShortformResponse;
+    }
+}
+
 export default class ShortForm {
 
     constructor(private downloader: ResponseDownloader) { }
 
-    public getHighlights(): ContentDocument[] {
+
+    public async getHighlights(): Promise<ContentDocument[]> {
         const response = this.downloader.getResponse();
-        return this.parseResponse(response);
+        return response.then(data => this.parseResponse(data));
     }
 
     // Parses a Shortform response to something to be rendered, 
@@ -82,8 +95,7 @@ export default class ShortForm {
                 id: d.id,
                 quote: d.quote,
                 text: d.text,
-            } as Quote)
-            );
+            } as Quote));
 
             const doc: ContentDocument = {
                 id: key,
@@ -92,7 +104,7 @@ export default class ShortForm {
                 cover: book.content.doc.cover_image,
                 type: book.content.doc.doc_type,
                 quotes: quotes,
-                url: buildUrl(book.content.doc.url_slug, book.content.content_type),
+                url: buildUrl(book.content.doc.url_slug, book.content.doc.doc_type),
             };
 
             documents.push(doc);

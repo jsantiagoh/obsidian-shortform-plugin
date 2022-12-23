@@ -2,10 +2,12 @@ import ShortForm, { ResponseDownloader, ShortformResponse } from "../src/shortfo
 import { ContentDocument } from "./models";
 
 const downloader: ResponseDownloader = {
-    getResponse(): ShortformResponse {
+    getResponse(): Promise<ShortformResponse> {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const response: ShortformResponse = require('../tests/response.json');
-        return response;
+        return new Promise((resolve, reject) => {
+            resolve(response);
+        });
     }
 };
 
@@ -13,15 +15,15 @@ const downloader: ResponseDownloader = {
 describe('Shortform module', () => {
     const sf: ShortForm = new ShortForm(downloader);
 
-    test('Parse response returns 4 books', () => {
-        const documents: ContentDocument[] = sf.getHighlights();
+    test('Parse response returns 4 books', async () => {
+        const documents: ContentDocument[] = await sf.getHighlights();
         expect(documents.length).toBe(4);
         expect(documents[0].title).toBe('Deep Work');
         expect(documents[0].url).toBe('https://www.shortform.com/app/book/deep-work/preview');
     });
 
-    test('Parse response returns the last book with 4 quotes', () => {
-        const documents: ContentDocument[] = sf.getHighlights();
+    test('Parse response returns the last book with 4 quotes', async () => {
+        const documents: ContentDocument[] = await sf.getHighlights();
         const book = documents[3];
 
         expect(book.quotes.length).toBe(4);
