@@ -8,6 +8,8 @@ export class FileWriter {
     public async writeFile(document: ContentDocument, content: string): Promise<void> {
         const filePath = this.generateFilePath(document);
         try {
+            // TODO: don't fail if file already exists
+            // Override? ignore?
             await this.vault.create(filePath, content);
         } catch (error) {
             console.error(`Error storying file at path="${filePath}"`);
