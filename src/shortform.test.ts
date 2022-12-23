@@ -5,9 +5,7 @@ const downloader: ResponseDownloader = {
     getResponse(): Promise<ShortformResponse> {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const response: ShortformResponse = require('../tests/response.json');
-        return new Promise((resolve, reject) => {
-            resolve(response);
-        });
+        return Promise.resolve(response);
     }
 };
 

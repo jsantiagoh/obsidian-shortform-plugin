@@ -57,16 +57,25 @@ function buildUrl(url_slug: string, type: string): string {
     return '';
 }
 
+export class ShortformDownloader {
+    private url = "https://www.shortform.com/api/highlights/?sort=date";
 
-export const fetchDownloader: ResponseDownloader = {
-    getResponse: async function (): Promise<ShortformResponse> {
-        const resp = await fetch('https://wttr.in/Amsterdam?format=j1');
+    constructor(private auth: string) { }
+
+    public async getResponse(): Promise<ShortformResponse> {
+        const options = {
+            headers: {
+                Authorization: `Basic ${this.auth}`,
+                "X-Sf-Client": "11.7.0"
+            }
+        };
+        const resp = await fetch(this.url, options);
         if (!resp.ok) {
             throw new Error(resp.statusText);
         }
-        const data = await resp.json();
-        return data as ShortformResponse;
+        return await resp.json() as ShortformResponse;
     }
+
 }
 
 export default class ShortForm {

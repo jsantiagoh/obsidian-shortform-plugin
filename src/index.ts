@@ -1,46 +1,68 @@
-import { App, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { App, Notice, Plugin, PluginSettingTab, Setting, Vault } from 'obsidian';
+import { ContentDocument } from './models';
 import Renderer from './render';
-import ShortForm from './shortform';
+import ShortForm, { ShortformDownloader } from './shortform';
+import { pickBy } from './utils';
 import { FileWriter } from './writer';
 
 // Remember to rename these classes and interfaces!
 
 interface ShortFormPluginSettings {
 	appKey: string;
+	highlightsFolder: string;
 }
 
 const DEFAULT_SETTINGS: ShortFormPluginSettings = {
-	appKey: ''
+	appKey: '',
+	highlightsFolder: ''
 }
 
 
-export default class MyPlugin extends Plugin {
-	settings: ShortFormPluginSettings;
-
+class Shortform {
+	private downloader: ShortformDownloader;
 	private shortform: ShortForm;
 	private fileWriter: FileWriter;
 	private renderer: Renderer;
+
+	constructor(appKey: string, vault: Vault, folder: string) {
+		this.downloader = new ShortformDownloader(appKey);
+		this.shortform = new ShortForm(this.downloader);
+		this.fileWriter = new FileWriter(vault, folder);
+		this.renderer = new Renderer();
+	};
+
+	public async writeHighlights(): Promise<ContentDocument[]> {
+		const books = await this.shortform.getHighlights();
+		for (const book of books) {
+			console.log(`rendering: ${book}`)
+			const content = this.renderer.render(book);
+			console.log(`writing: ${book}`)
+			this.fileWriter.writeFile(book, content);
+		}
+		return books;
+	}
+
+}
+
+
+export default class ShortformPlugin extends Plugin {
+	settings: ShortFormPluginSettings;
+
+	private shortForm: Shortform;
 
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.shortform = new ShortForm();
-		this.fileWriter = new FileWriter(this.app.vault);
-		this.renderer = new Renderer();
+		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.highlightsFolder);
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			const books = this.shortform.getHighlights();
-			for (const book of books) {
-				console.log('rendering...')
-				const content = this.renderer.render(book);
-				console.log(`writing...`);
-				this.fileWriter.writeFile(book, content);
-			}
 
-			new Notice('Sync done');
+			this.shortForm.writeHighlights().then(() => {
+				new Notice('Sync done');
+			});
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
@@ -50,16 +72,18 @@ export default class MyPlugin extends Plugin {
 		// statusBarItemEl.setText('Status Bar Text');
 
 		// This adds a simple command that can be triggered anywhere
-		// this.addCommand({
-		// 	id: 'open-sample-modal-simple',
-		// 	name: 'Open sample modal (simple)',
-		// 	callback: () => {
-		// 		new SampleModal(this.app).open();
-		// 	}
-		// });
+		this.addCommand({
+			id: 'shortform-plugin-get',
+			name: 'Shortform: Get Highlights',
+			callback: () => {
+				this.shortForm.writeHighlights().then(() => {
+					new Notice('Sync done');
+				});
+			}
+		});
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		this.addSettingTab(new ShortformSettingTab(this.app, this));
 
 
 		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
@@ -76,14 +100,14 @@ export default class MyPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.highlightsFolder);
 	}
 }
 
+class ShortformSettingTab extends PluginSettingTab {
+	plugin: ShortformPlugin;
 
-class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
-
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: ShortformPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -93,18 +117,46 @@ class SampleSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'Settings for my awesome plugin.' });
+		containerEl.createEl('h2', { text: 'Shortform plugin settings' });
 
+		this.applicationKey(containerEl);
+		this.highlightsFolder(containerEl);
+	}
+
+	private applicationKey(containerEl: HTMLElement) {
 		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
+			.setName('Authentication key')
+			.setDesc('Get it from your browser logged into shortform (for now)')
 			.addText(text => text
-				.setPlaceholder('Enter your secret')
+				.setPlaceholder('Enter your key')
 				.setValue(this.plugin.settings.appKey)
 				.onChange(async (value) => {
-					console.log('Secret: ' + value);
 					this.plugin.settings.appKey = value;
 					await this.plugin.saveSettings();
 				}));
 	}
+
+	private highlightsFolder(containerEl: HTMLElement): void {
+		new Setting(containerEl)
+			.setName('Highlights folder location')
+			.setDesc('Vault folder to use for writing book highlight notes')
+			.addDropdown((dropdown) => {
+				// Dictionary of     { "/": { "type": "folder", "realpath": "/" }, "/something.md"....}
+				const files = (this.app.vault.adapter as any).files
+
+				const folders = pickBy(files, (val: { type: string; }) => {
+					return val.type === 'folder';
+				});
+
+				Object.keys(folders).forEach((val) => {
+					dropdown.addOption(val, val);
+				});
+
+				return dropdown.setValue(this.plugin.settings.highlightsFolder).onChange(async (value) => {
+					this.plugin.settings.highlightsFolder = value;
+					await this.plugin.saveSettings();
+				});
+			});
+	}
+
 }

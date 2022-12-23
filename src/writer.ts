@@ -1,9 +1,10 @@
 import { Vault } from "obsidian";
 import { ContentDocument } from "./models";
+import * as path from 'path';
 
 export class FileWriter {
 
-    constructor(private vault: Vault) { }
+    constructor(private vault: Vault, private baseDir: string = 'Shortform') { }
 
     public async writeFile(document: ContentDocument, content: string): Promise<void> {
         const filePath = this.generateFilePath(document);
@@ -17,7 +18,7 @@ export class FileWriter {
         }
     }
 
-    generateFilePath(content: ContentDocument): string {
-        return `Shortform/${content.title}.md`;
+    private generateFilePath(content: ContentDocument): string {
+        return `${this.baseDir}/${content.title}.md`;
     }
 }
