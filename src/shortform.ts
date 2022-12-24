@@ -47,7 +47,7 @@ export interface ResponseDownloader {
     getResponse(): Promise<ShortformResponse>;
 }
 
-function buildUrl(url_slug: string, type: string): string {
+export function buildUrl(url_slug: string, type: string): string {
     switch (type) {
         case 'book':
             return `https://www.shortform.com/app/book/${url_slug}/preview`;

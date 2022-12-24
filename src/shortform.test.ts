@@ -1,4 +1,4 @@
-import ShortForm, { ResponseDownloader, ShortformResponse } from "../src/shortform";
+import ShortForm, { buildUrl, ResponseDownloader, ShortformResponse } from "../src/shortform";
 import { ContentDocument } from "./models";
 
 const downloader: ResponseDownloader = {
@@ -26,6 +26,10 @@ describe('Shortform module', () => {
 
         expect(book.quotes.length).toBe(4);
         expect(book.quotes[0].quote).toBe('Ultimately, execution is the thread that ties together strategy, goals, and people in a successful company. In practice, it looks like motivated people collaborating, speaking candidly, and relentlessly seeking solutions to fulfill big goals, all led by their leader');
+    });
+
+    test('Build url correctly builds an article url', () => {
+        expect(buildUrl('testing_plugins', 'article')).toBe('https://www.shortform.com/app/article/testing_plugins');
     });
 
 });
