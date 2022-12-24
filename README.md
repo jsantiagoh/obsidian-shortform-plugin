@@ -4,7 +4,7 @@ Unnoficial __AND VERY BETA__ [shortform](https://shortform.com) plugin for [obsi
 
 Download highlights from Shortform into Obsidian.
 
-This is at POC level, it may destroy your vault and you can't say I didn't warn you. 
+DISCLAIMERS: This is at POC level, it may destroy your vault and you can't say I didn't warn you. Also, I'm not a typescript/javascript/frontend developer
 
 Please check the settings window before syncing to setup the application key and the directory to use.
 
