@@ -1,4 +1,6 @@
-// I would love to define this in an external file, but I don't want to add complexity to do so
+// I would love to define this in an external file and have it as a resource but
+// I don't know how without adding webpack and don't want to add it
+
 export const bookTemplate: string = `---
 title: {{title}}
 author: {{author}}
