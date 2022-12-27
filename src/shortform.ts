@@ -16,6 +16,7 @@ interface ShortformContent {
     title: string;
     order: number;
     doc: ShortformDocument;
+    url_slug: string;
 }
 
 interface ShortformDocument {
@@ -47,10 +48,10 @@ export interface ResponseDownloader {
     getResponse(): Promise<ShortformResponse>;
 }
 
-export function buildUrl(url_slug: string, type: string): string {
+export function buildDocUrl(url_slug: string, type: string): string {
     switch (type) {
         case 'book':
-            return `https://www.shortform.com/app/book/${url_slug}/preview`;
+            return `https://www.shortform.com/app/book/${url_slug}/highlights`;
         case 'article':
             return `https://www.shortform.com/app/article/${url_slug}`;
     }
@@ -113,7 +114,7 @@ export default class ShortForm {
                 cover: book.content.doc.cover_image,
                 type: book.content.doc.doc_type,
                 quotes: quotes,
-                url: buildUrl(book.content.doc.url_slug, book.content.doc.doc_type),
+                url: buildDocUrl(book.content.doc.url_slug, book.content.doc.doc_type),
             };
 
             documents.push(doc);

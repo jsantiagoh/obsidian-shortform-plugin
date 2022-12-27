@@ -1,4 +1,4 @@
-import ShortForm, { buildUrl, ResponseDownloader, ShortformResponse } from "../src/shortform";
+import ShortForm, { buildDocUrl, ResponseDownloader, ShortformResponse } from "../src/shortform";
 import { ContentDocument } from "./models";
 
 const downloader: ResponseDownloader = {
@@ -17,7 +17,7 @@ describe('Shortform module', () => {
         const documents: ContentDocument[] = await sf.getHighlights();
         expect(documents.length).toBe(4);
         expect(documents[0].title).toBe('Deep Work');
-        expect(documents[0].url).toBe('https://www.shortform.com/app/book/deep-work/preview');
+        expect(documents[0].url).toBe('https://www.shortform.com/app/book/deep-work/highlights');
     });
 
     test('Parse response returns the last book with 4 quotes', async () => {
@@ -29,7 +29,7 @@ describe('Shortform module', () => {
     });
 
     test('Build url correctly builds an article url', () => {
-        expect(buildUrl('testing_plugins', 'article')).toBe('https://www.shortform.com/app/article/testing_plugins');
+        expect(buildDocUrl('testing_plugins', 'article')).toBe('https://www.shortform.com/app/article/testing_plugins');
     });
 
 });
