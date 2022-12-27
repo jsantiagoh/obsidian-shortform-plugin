@@ -16,8 +16,10 @@ url: {{url}}
 > - Content: [{{title}}]({{url}})
 
 ## Highlights
-{% for quote in quotes %}
-> {{quote.quote}}
+{% for quote in quotes -%}
+    {% for q in quote.quote.split('\n') %}
+> {{q}}
+    {%- endfor %}
 {% if quote.text %}
 
 {{quote.text}}
