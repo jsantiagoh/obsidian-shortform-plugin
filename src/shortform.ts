@@ -48,12 +48,12 @@ export interface ResponseDownloader {
     getResponse(): Promise<ShortformResponse>;
 }
 
-export function buildDocUrl(url_slug: string, type: string): string {
+export function buildDocUrl(doc_url_slug: string, type: string, content_url_slug: string = 'highlights'): string {
     switch (type) {
         case 'book':
-            return `https://www.shortform.com/app/book/${url_slug}/highlights`;
+            return `https://www.shortform.com/app/book/${doc_url_slug}/${content_url_slug}`;
         case 'article':
-            return `https://www.shortform.com/app/article/${url_slug}`;
+            return `https://www.shortform.com/app/article/${doc_url_slug}`;
     }
     return '';
 }
