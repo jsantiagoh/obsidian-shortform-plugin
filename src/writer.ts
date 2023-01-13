@@ -1,6 +1,5 @@
 import { Vault } from "obsidian";
 import { ContentDocument } from "./models";
-import * as path from 'path';
 
 export class FileWriter {
 

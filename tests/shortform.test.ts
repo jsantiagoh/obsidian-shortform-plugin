@@ -4,7 +4,7 @@ import { ContentDocument } from "../src/models";
 const downloader: ResponseDownloader = {
     getResponse(): Promise<ShortformResponse> {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const response: ShortformResponse = require('../tests/response.json');
+        const response: ShortformResponse = require('../tests/data/response.json');
         return Promise.resolve(response);
     }
 };

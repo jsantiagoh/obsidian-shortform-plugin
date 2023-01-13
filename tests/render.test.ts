@@ -1,7 +1,33 @@
 import { ContentDocument, Quote } from "../src/models";
 import Renderer from "../src/render";
+import { readFileSync } from "fs";
 
-test('Test render simple case', () => {
+
+test('Test render multiline quote', () => {
+    const render = new Renderer();
+
+    const quotes: Quote[] = [
+        {
+            id: '1',
+            quote: 'this\nis\na\nmultiline\nquote',
+            text: '',
+        },
+    ];
+
+    const content: ContentDocument = {
+        id: "",
+        title: "testing title",
+        author: "santiago",
+        type: "book",
+        cover: "//media.shortform.com/covers/png/deep-work-cover.png",
+        url: 'https://www.shortform.com/app/book/deep-work/preview',
+        quotes: quotes,
+    };
+
+    expect(render.render(content)).toBe(readFileSync('./tests/data/rendered/multiline-quote.md', 'utf-8'));
+});
+
+test('Test render simple case with file', () => {
     const render = new Renderer();
 
     const quotes: Quote[] = [
@@ -27,87 +53,5 @@ test('Test render simple case', () => {
         quotes: quotes,
     };
 
-    const expected = `---
-title: testing title
-author: santiago
-document_type: book
-source: shortform
-url: https://www.shortform.com/app/book/deep-work/preview
----
-
-# testing title 
-
-> [!ABSTRACT] Metadata
-> - Author: santiago
-> - Content: [testing title](https://www.shortform.com/app/book/deep-work/preview)
-
-## Highlights
-
-> first quote from the book
-
-
-this quote changed my life
-
----
-
-> second quote from the book
-
-
-this should be forever
-
----
-
-`;
-
-
-    expect(render.render(content)).toBe(expected);
-});
-
-test('Test render multiline quote', () => {
-    const render = new Renderer();
-
-    const quotes: Quote[] = [
-        {
-            id: '1',
-            quote: 'this\nis\na\nmultiline\nquote',
-            text: '',
-        },
-    ];
-
-    const content: ContentDocument = {
-        id: "",
-        title: "testing title",
-        author: "santiago",
-        type: "book",
-        cover: "//media.shortform.com/covers/png/deep-work-cover.png",
-        url: 'https://www.shortform.com/app/book/deep-work/preview',
-        quotes: quotes,
-    };
-
-    const expected = `---
-title: testing title
-author: santiago
-document_type: book
-source: shortform
-url: https://www.shortform.com/app/book/deep-work/preview
----
-
-# testing title 
-
-> [!ABSTRACT] Metadata
-> - Author: santiago
-> - Content: [testing title](https://www.shortform.com/app/book/deep-work/preview)
-
-## Highlights
-
-> this
-> is
-> a
-> multiline
-> quote
-
----
-
-`;
-    expect(render.render(content)).toBe(expected);
+    expect(render.render(content)).toBe(readFileSync('./tests/data/rendered/book.md', 'utf-8'));
 });

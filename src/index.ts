@@ -7,41 +7,52 @@ import { FileWriter } from './writer';
 
 // Remember to rename these classes and interfaces!
 
-interface ShortFormPluginSettings {
-	appKey: string;
-	highlightsFolder: string;
-}
 
-const DEFAULT_SETTINGS: ShortFormPluginSettings = {
-	appKey: '',
-	highlightsFolder: ''
-}
-
-
+// Contains all logic for getting and writing hightlights
 class Shortform {
 	private downloader: ShortformDownloader;
 	private shortform: ShortForm;
-	private fileWriter: FileWriter;
+	private bookWriter: FileWriter;
+	private articleWriter: FileWriter;
 	private renderer: Renderer;
 
-	constructor(appKey: string, vault: Vault, folder: string) {
+	constructor(appKey: string, vault: Vault, bookFolder: string, articleFolder: string) {
 		this.downloader = new ShortformDownloader(appKey);
 		this.shortform = new ShortForm(this.downloader);
-		this.fileWriter = new FileWriter(vault, folder);
+		this.bookWriter = new FileWriter(vault, bookFolder);
+		this.articleWriter = new FileWriter(vault, articleFolder);
 		this.renderer = new Renderer();
 	};
 
 	public async writeHighlights(): Promise<ContentDocument[]> {
-		const books = await this.shortform.getHighlights();
-		for (const book of books) {
-			console.log(`rendering: ${book}`)
-			const content = this.renderer.render(book);
-			console.log(`writing: ${book}`)
-			this.fileWriter.writeFile(book, content);
+		const docs = await this.shortform.getHighlights();
+		for (const doc of docs) {
+			console.log(`rendering: ${doc}`)
+			const content = this.renderer.render(doc);
+			console.log(`writing: ${doc}`)
+			if (doc.type === 'article') {
+				this.articleWriter.writeFile(doc, content);
+			} else {
+				this.bookWriter.writeFile(doc, content);
+			}
 		}
-		return books;
+		return docs;
 	}
 
+}
+
+
+// Obsidian specific classes
+interface ShortFormPluginSettings {
+	appKey: string;
+	booksFolder: string;
+	articlesFolder: string;
+}
+
+const DEFAULT_SETTINGS: ShortFormPluginSettings = {
+	appKey: '',
+	booksFolder: '',
+	articlesFolder: ''
 }
 
 
@@ -54,7 +65,7 @@ export default class ShortformPlugin extends Plugin {
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.highlightsFolder);
+		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.booksFolder, this.settings.articlesFolder);
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
@@ -100,7 +111,7 @@ export default class ShortformPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
-		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.highlightsFolder);
+		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.booksFolder);
 	}
 }
 
@@ -120,7 +131,8 @@ class ShortformSettingTab extends PluginSettingTab {
 		containerEl.createEl('h2', { text: 'Shortform plugin settings' });
 
 		this.applicationKey(containerEl);
-		this.highlightsFolder(containerEl);
+		this.booksFolder(containerEl);
+		this.articlesFolder(containerEl);
 	}
 
 	private applicationKey(containerEl: HTMLElement) {
@@ -136,9 +148,9 @@ class ShortformSettingTab extends PluginSettingTab {
 				}));
 	}
 
-	private highlightsFolder(containerEl: HTMLElement): void {
+	private booksFolder(containerEl: HTMLElement): void {
 		new Setting(containerEl)
-			.setName('Highlights folder location')
+			.setName('Books folder location')
 			.setDesc('Vault folder to use for writing book highlight notes')
 			.addDropdown((dropdown) => {
 				// Dictionary of     { "/": { "type": "folder", "realpath": "/" }, "/something.md"....}
@@ -152,8 +164,31 @@ class ShortformSettingTab extends PluginSettingTab {
 					dropdown.addOption(val, val);
 				});
 
-				return dropdown.setValue(this.plugin.settings.highlightsFolder).onChange(async (value) => {
-					this.plugin.settings.highlightsFolder = value;
+				return dropdown.setValue(this.plugin.settings.booksFolder).onChange(async (value) => {
+					this.plugin.settings.booksFolder = value;
+					await this.plugin.saveSettings();
+				});
+			});
+	}
+
+	private articlesFolder(containerEl: HTMLElement): void {
+		new Setting(containerEl)
+			.setName('Article folder location')
+			.setDesc('Vault folder to use for writing article highlight notes')
+			.addDropdown((dropdown) => {
+				// Dictionary of     { "/": { "type": "folder", "realpath": "/" }, "/something.md"....}
+				const files = (this.app.vault.adapter as any).files
+
+				const folders = pickBy(files, (val: { type: string; }) => {
+					return val.type === 'folder';
+				});
+
+				Object.keys(folders).forEach((val) => {
+					dropdown.addOption(val, val);
+				});
+
+				return dropdown.setValue(this.plugin.settings.articlesFolder).onChange(async (value) => {
+					this.plugin.settings.articlesFolder = value;
 					await this.plugin.saveSettings();
 				});
 			});
