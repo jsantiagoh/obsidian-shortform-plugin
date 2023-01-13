@@ -1,5 +1,5 @@
 import ShortForm, { buildDocUrl, ResponseDownloader, ShortformResponse } from "../src/shortform";
-import { ContentDocument } from "./models";
+import { ContentDocument } from "../src/models";
 
 const downloader: ResponseDownloader = {
     getResponse(): Promise<ShortformResponse> {

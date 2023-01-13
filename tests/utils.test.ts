@@ -1,4 +1,4 @@
-import { groupBy, pickBy } from "./utils";
+import { groupBy, pickBy } from "../src/utils";
 
 describe('Utils module', () => {
     test('groupby', () => {

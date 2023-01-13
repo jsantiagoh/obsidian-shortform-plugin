@@ -1,5 +1,5 @@
-import { ContentDocument, Quote } from "./models";
-import Renderer from "./render";
+import { ContentDocument, Quote } from "../src/models";
+import Renderer from "../src/render";
 
 test('Test render simple case', () => {
     const render = new Renderer();
