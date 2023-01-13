@@ -1,45 +1,8 @@
-import { App, Notice, Plugin, PluginSettingTab, Setting, Vault } from 'obsidian';
-import { ContentDocument } from './models';
-import Renderer from './render';
-import ShortForm, { ShortformDownloader } from './shortform';
+import { App, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import ShortForm from "./ShortForm";
 import { pickBy } from './utils';
-import { FileWriter } from './writer';
 
 // Remember to rename these classes and interfaces!
-
-
-// Contains all logic for getting and writing hightlights
-class Shortform {
-	private downloader: ShortformDownloader;
-	private shortform: ShortForm;
-	private bookWriter: FileWriter;
-	private articleWriter: FileWriter;
-	private renderer: Renderer;
-
-	constructor(appKey: string, vault: Vault, bookFolder: string, articleFolder: string) {
-		this.downloader = new ShortformDownloader(appKey);
-		this.shortform = new ShortForm(this.downloader);
-		this.bookWriter = new FileWriter(vault, bookFolder);
-		this.articleWriter = new FileWriter(vault, articleFolder);
-		this.renderer = new Renderer();
-	};
-
-	public async writeHighlights(): Promise<ContentDocument[]> {
-		const docs = await this.shortform.getHighlights();
-		for (const doc of docs) {
-			console.log(`rendering: ${doc}`)
-			const content = this.renderer.render(doc);
-			console.log(`writing: ${doc}`)
-			if (doc.type === 'article') {
-				this.articleWriter.writeFile(doc, content);
-			} else {
-				this.bookWriter.writeFile(doc, content);
-			}
-		}
-		return docs;
-	}
-
-}
 
 
 // Obsidian specific classes
@@ -59,7 +22,7 @@ const DEFAULT_SETTINGS: ShortFormPluginSettings = {
 export default class ShortformPlugin extends Plugin {
 	settings: ShortFormPluginSettings;
 
-	private shortForm: Shortform;
+	private shortForm: ShortForm;
 
 
 	async onload(): Promise<void> {

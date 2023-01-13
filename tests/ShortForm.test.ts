@@ -1,5 +1,8 @@
-import ShortForm, { buildDocUrl, ResponseDownloader, ShortformResponse } from "../src/shortform";
+import { buildDocUrl, ResponseDownloader, ShortformResponse } from "../src/downloader";
+import ShortForm from "../src/ShortForm";
 import { ContentDocument } from "../src/models";
+import { Vault } from "obsidian";
+import { mock } from 'jest-mock-extended';
 
 const downloader: ResponseDownloader = {
     getResponse(): Promise<ShortformResponse> {
@@ -9,19 +12,23 @@ const downloader: ResponseDownloader = {
     }
 };
 
+const appkey = '';
+const bookFolder = '';
+const articleFolder = '';
+const vault = mock<Vault>();
 
 describe('Shortform module', () => {
-    const sf: ShortForm = new ShortForm(downloader);
+    const sf: ShortForm = new ShortForm(appkey, vault, bookFolder, articleFolder);
 
     test('Parse response returns 4 books', async () => {
-        const documents: ContentDocument[] = await sf.getHighlights();
+        const documents: ContentDocument[] = await sf.getHighlights(downloader);
         expect(documents.length).toBe(4);
         expect(documents[0].title).toBe('Deep Work');
         expect(documents[0].url).toBe('https://www.shortform.com/app/book/deep-work/highlights');
     });
 
     test('Parse response returns the last book with 4 quotes', async () => {
-        const documents: ContentDocument[] = await sf.getHighlights();
+        const documents: ContentDocument[] = await sf.getHighlights(downloader);
         const book = documents[3];
 
         expect(book.quotes.length).toBe(4);
