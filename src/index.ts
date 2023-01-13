@@ -28,7 +28,7 @@ export default class ShortformPlugin extends Plugin {
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.booksFolder, this.settings.articlesFolder);
+		this.shortForm = new ShortForm(this.settings.appKey, this.app.vault, this.settings.booksFolder, this.settings.articlesFolder);
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
@@ -74,7 +74,7 @@ export default class ShortformPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
-		this.shortForm = new Shortform(this.settings.appKey, this.app.vault, this.settings.booksFolder);
+		this.shortForm = new ShortForm(this.settings.appKey, this.app.vault, this.settings.booksFolder, this.settings.articlesFolder);
 	}
 }
 
