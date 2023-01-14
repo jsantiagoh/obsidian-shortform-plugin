@@ -7,30 +7,23 @@ export class FileWriter {
 
     public async writeFile(document: ContentDocument, content: string): Promise<void> {
         const filePath = this.generateFilePath(document);
-        try {
-            // File exists, update it's content
-            // if it does not, then create it
+        // File exists, update it's content
+        // if it does not, then create it
 
-            const fileOrFolder = this.vault.getAbstractFileByPath(filePath);
-            if (fileOrFolder === null || fileOrFolder === undefined) {
-                // Does not exist, create it
-                await this.vault.create(filePath, content);
-                return;
-            }
-
-            // File (or folder) already exists
-            if (fileOrFolder instanceof TFolder) {
-                throw new Error(`${filePath} is a folder, this was unexpected, skipping it`);
-            }
-
-            // It's an already existing file, update it
-            await this.vault.modify(fileOrFolder as TFile, content);
-
-
-        } catch (error) {
-            console.error(`Error storying file at path="${filePath}"`);
-            throw error;
+        const fileOrFolder = this.vault.getAbstractFileByPath(filePath);
+        if (fileOrFolder === null || fileOrFolder === undefined) {
+            // Does not exist, create it
+            await this.vault.create(filePath, content);
+            return;
         }
+
+        // File (or folder) already exists
+        if (fileOrFolder instanceof TFolder) {
+            throw new Error(`${filePath} is a folder, this was unexpected, skipping it`);
+        }
+
+        // It's an already existing file, update it
+        await this.vault.modify(fileOrFolder as TFile, content);
     }
 
     private generateFilePath(content: ContentDocument): string {

@@ -29,13 +29,15 @@ export default class ShortForm {
     public async writeHighlights(): Promise<ContentDocument[]> {
         const docs = await this.getHighlights();
         for (const doc of docs) {
-            console.log(`rendering: ${doc}`)
-            const content = this.renderer.render(doc);
-            console.log(`writing: ${doc}`)
-            if (doc.type === 'article') {
-                this.articleWriter.writeFile(doc, content);
-            } else {
-                this.bookWriter.writeFile(doc, content);
+            try {
+                const content = this.renderer.render(doc);
+                if (doc.type === 'article') {
+                    this.articleWriter.writeFile(doc, content);
+                } else {
+                    this.bookWriter.writeFile(doc, content);
+                }
+            } catch (e: any) {
+                console.error(e);
             }
         }
         return docs;
