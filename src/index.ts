@@ -1,5 +1,5 @@
 import { addIcon, App, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import ShortForm from "./ShortForm";
+import ShortForm from "./shortform";
 import { pickBy } from './utils';
 
 // Remember to rename these classes and interfaces!
@@ -38,7 +38,7 @@ export default class ShortformPlugin extends Plugin {
   <polyline style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 18px;" points="193.483 163.189 327.476 161.724"></polyline></svg>`);
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('shortform', 'Shortform: Get Highlights', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('download-cloud', 'Shortform: Get Highlights', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 
 			this.shortForm.writeHighlights().then(() => {
