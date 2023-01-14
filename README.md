@@ -8,7 +8,13 @@ DISCLAIMERS: This is at POC level, it may destroy your vault and you can't say I
 
 Please check the settings window before syncing to setup the application key and the directory to use.
 
-## Getting the application key
+## Installation & Usage
+
+Install it using [BRAT](https://github.com/TfTHacker/obsidian42-brat).
+
+Once installed and activated, you need to add your Shortform authentication token and then select where to store Book and Article highlights, select the same folder if you prefer so (I prefer them in separate ones).
+
+### Getting the application key
 
 Maybe someday this will be a login inside obsidian, but for now you'll have to extract it from your browser *after* you log into shortform. Extract it from one of
 
@@ -16,6 +22,7 @@ Maybe someday this will be a login inside obsidian, but for now you'll have to e
 - Follow the much more clearer instructions on [Nicole van der Hoeven's blog](https://nicolevanderhoeven.com/blog/20210815-shortform-to-readwise/)
 
 Once you have this, just go to Settings and store that value there.
+
 
 ## Mission statement
 
